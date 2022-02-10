@@ -1,4 +1,4 @@
-# BP实验说明——中文翻译版
+# BP实验说明——中文翻译版byJeremy
 
 论文主页：[Bullseye Polytope: A Scalable Clean-Label Poisoning Attack with Improved Transferability](https://arxiv.org/abs/2005.00191)
 
