@@ -1,0 +1,95 @@
+Parameters: 0 convex 17 1 3
+--------
+Evaluating against victims networks
+DPN92
+Using Adam for retraining
+Files already downloaded and verified
+2022-02-11 18:07:45, Epoch 0, Iteration 7, loss 3.228 (3.754), acc 86.538 (69.200)
+2022-02-11 18:07:46, Epoch 30, Iteration 7, loss 0.050 (0.139), acc 98.077 (98.000)
+Target Label: 6, Poison label: 8, Prediction:6, Target's Score:[17.676214, -2.6433978, -75.045044, -0.5369945, -14.858103, 1.8588337, 44.0786, -42.88167, 34.84702, -84.45172], Poisons' Predictions:[6, 8, 8]
+2022-02-11 18:07:51 Epoch 59, Val iteration 0, acc 90.000 (90.000)
+2022-02-11 18:08:04 Epoch 59, Val iteration 19, acc 91.400 (91.360)
+* Prec: 91.36000175476075
+--------
+SENet18
+Using Adam for retraining
+Files already downloaded and verified
+2022-02-11 18:08:07, Epoch 0, Iteration 7, loss 0.027 (0.721), acc 98.077 (89.600)
+2022-02-11 18:08:07, Epoch 30, Iteration 7, loss 0.004 (0.226), acc 100.000 (94.600)
+Target Label: 6, Poison label: 8, Prediction:6, Target's Score:[1.8413255, -16.142054, -12.652959, -3.9903617, 9.539394, -11.493924, 27.747381, -11.053223, 17.786936, -26.417229], Poisons' Predictions:[6, 6, 8]
+2022-02-11 18:08:08 Epoch 59, Val iteration 0, acc 91.200 (91.200)
+2022-02-11 18:08:12 Epoch 59, Val iteration 19, acc 92.800 (91.300)
+* Prec: 91.30000114440918
+--------
+ResNet50
+Using Adam for retraining
+Files already downloaded and verified
+2022-02-11 18:08:15, Epoch 0, Iteration 7, loss 0.016 (0.804), acc 100.000 (87.200)
+2022-02-11 18:08:15, Epoch 30, Iteration 7, loss 0.000 (0.036), acc 100.000 (99.600)
+Target Label: 6, Poison label: 8, Prediction:6, Target's Score:[-32.260784, -42.52213, -72.35373, -14.840862, -8.556207, -24.58446, 32.92957, -37.748318, 26.11347, -22.561747], Poisons' Predictions:[8, 8, 8]
+2022-02-11 18:08:17 Epoch 59, Val iteration 0, acc 92.400 (92.400)
+2022-02-11 18:08:24 Epoch 59, Val iteration 19, acc 93.200 (91.980)
+* Prec: 91.98000068664551
+--------
+ResNeXt29_2x64d
+Using Adam for retraining
+Files already downloaded and verified
+2022-02-11 18:08:26, Epoch 0, Iteration 7, loss 1.137 (1.764), acc 92.308 (76.600)
+2022-02-11 18:08:27, Epoch 30, Iteration 7, loss 0.001 (0.052), acc 100.000 (98.000)
+Target Label: 6, Poison label: 8, Prediction:6, Target's Score:[-29.61818, 16.43118, 1.9926872, 12.846933, -41.992104, -17.39808, 38.282005, -18.756712, 22.948801, -16.964638], Poisons' Predictions:[8, 8, 8]
+2022-02-11 18:08:28 Epoch 59, Val iteration 0, acc 92.600 (92.600)
+2022-02-11 18:08:35 Epoch 59, Val iteration 19, acc 92.400 (92.350)
+* Prec: 92.35000152587891
+--------
+GoogLeNet
+Using Adam for retraining
+Files already downloaded and verified
+2022-02-11 18:08:38, Epoch 0, Iteration 7, loss 0.420 (0.475), acc 94.231 (90.600)
+2022-02-11 18:08:39, Epoch 30, Iteration 7, loss 0.021 (0.067), acc 98.077 (97.800)
+Target Label: 6, Poison label: 8, Prediction:6, Target's Score:[-12.69266, -9.586102, -6.368069, -0.5659077, -8.990693, -3.7786453, 11.923883, -1.494905, 7.2221293, -20.072273], Poisons' Predictions:[6, 8, 8]
+2022-02-11 18:08:42 Epoch 59, Val iteration 0, acc 91.400 (91.400)
+2022-02-11 18:08:50 Epoch 59, Val iteration 19, acc 92.200 (91.970)
+* Prec: 91.97000083923339
+--------
+MobileNetV2
+Using Adam for retraining
+Files already downloaded and verified
+2022-02-11 18:08:52, Epoch 0, Iteration 7, loss 1.294 (3.647), acc 80.769 (56.800)
+2022-02-11 18:08:52, Epoch 30, Iteration 7, loss 0.090 (0.282), acc 96.154 (94.600)
+Target Label: 6, Poison label: 8, Prediction:6, Target's Score:[-2.259154, -7.209786, -1.1556593, 14.310878, -6.3614774, -0.7013492, 25.382164, -24.22539, 17.620146, -12.635292], Poisons' Predictions:[6, 8, 8]
+2022-02-11 18:08:53 Epoch 59, Val iteration 0, acc 89.400 (89.400)
+2022-02-11 18:08:57 Epoch 59, Val iteration 19, acc 88.600 (87.510)
+* Prec: 87.51000137329102
+--------
+ResNet18
+Using Adam for retraining
+Files already downloaded and verified
+2022-02-11 18:09:00, Epoch 0, Iteration 7, loss 0.496 (0.664), acc 98.077 (88.200)
+2022-02-11 18:09:00, Epoch 30, Iteration 7, loss 0.012 (0.159), acc 100.000 (98.000)
+Target Label: 6, Poison label: 8, Prediction:6, Target's Score:[-38.364212, -24.468529, -15.696304, 3.8441155, -39.503605, -9.108085, 15.618379, -18.52249, 11.789228, -41.973892], Poisons' Predictions:[6, 8, 8]
+2022-02-11 18:09:01 Epoch 59, Val iteration 0, acc 93.400 (93.400)
+2022-02-11 18:09:04 Epoch 59, Val iteration 19, acc 94.200 (92.790)
+* Prec: 92.79000244140624
+--------
+DenseNet121
+Using Adam for retraining
+Files already downloaded and verified
+2022-02-11 18:09:07, Epoch 0, Iteration 7, loss 0.517 (0.393), acc 92.308 (92.200)
+2022-02-11 18:09:07, Epoch 30, Iteration 7, loss 0.185 (0.029), acc 96.154 (99.400)
+Target Label: 6, Poison label: 8, Prediction:6, Target's Score:[-14.213067, -15.267577, -9.282029, -2.0381386, -8.965634, -5.192105, 9.228903, -23.925196, 6.461943, -17.156427], Poisons' Predictions:[8, 8, 8]
+2022-02-11 18:09:10 Epoch 59, Val iteration 0, acc 93.600 (93.600)
+2022-02-11 18:09:17 Epoch 59, Val iteration 19, acc 93.000 (92.950)
+* Prec: 92.9500015258789
+--------
+------SUMMARY------
+TIME ELAPSED (mins): 94
+TARGET INDEX: 17
+DPN92 0
+SENet18 0
+ResNet50 0
+ResNeXt29_2x64d 0
+GoogLeNet 0
+MobileNetV2 0
+ResNet18 0
+DenseNet121 0
+(palearn) pengkai@husteic-virtual-machine:~/An/BP$ 
