@@ -1,6 +1,4 @@
-The dataset is known by the attacker.
 bash launch/eval-transfer.sh 0 17 attack-results-10poisons/100-overlap/linear-transfer-learning/convex/800/
-parameters: 0 17 attack-results-10poisons/100-overlap/linear-transfer-learning/convex/800/
 
 Namespace(device='cuda', dset_path='datasets', end2end=False, eval_poisons_root='attack-results-10poisons/100-overlap/linear-transfer-learning/convex/800/', gpu='0', lr_decay_epoch=[30, 45], model_resume_path='model-chks', num_per_class=50, poison_label=8, retrain_bsize=64, retrain_epochs=30, retrain_lr=0.1, retrain_momentum=0.9, retrain_opt='adam', retrain_wd=0, subset_group=0, target_camera=True, target_dset='cifar10', target_index_end=-1, target_index_start=17, target_index_step=1, target_label=6, target_net=['DPN92', 'SENet18', 'ResNet50', 'ResNeXt29_2x64d', 'GoogLeNet', 'MobileNetV2', 'ResNet18', 'DenseNet121'], target_print_size=[2, 4], test_chk_name='ckpt-%s-4800.t7', train_data_path='datasets/CIFAR10_TRAIN_Split.pth')
 Files already downloaded and verified
