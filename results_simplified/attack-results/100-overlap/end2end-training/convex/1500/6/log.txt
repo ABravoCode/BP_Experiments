@@ -1,0 +1,49 @@
+Namespace(chk_path='chk-black-end2end', chk_subdir='poisons', device='cuda', dset_path='datasets', end2end=True, eval_poison_path='', gpu='6', lr_decay_epoch=[30, 45], mode='convex', model_resume_path='model-chks', nearest=False, net_repeat=1, num_per_class=50, original_grad=True, poison_decay_ites=[], poison_decay_ratio=0.1, poison_epsilon=0.1, poison_ites=1500, poison_label=8, poison_lr=0.04, poison_momentum=0.9, poison_num=5, poison_opt='adam', resume_poison_ite=0, retrain_bsize=64, retrain_epochs=60, retrain_lr=0.0001, retrain_momentum=0.9, retrain_opt='adam', retrain_wd=0.0005, subs_chk_name=['ckpt-%s-4800-dp0.200-droplayer0.000-seed1226.t7', 'ckpt-%s-4800-dp0.250-droplayer0.000-seed1226.t7', 'ckpt-%s-4800-dp0.300-droplayer0.000.t7'], subs_dp=[0.2, 0.25, 0.3], subset_group=0, substitute_nets=['DPN92', 'SENet18', 'ResNet50', 'ResNeXt29_2x64d'], target_index=6, target_label=6, target_net=['DPN92'], test_chk_name='ckpt-%s-4800.t7', tol=1e-06, train_data_path='datasets/CIFAR10_TRAIN_Split.pth')
+Path: chk-black-end2end/convex/1500/6
+Selected base image indices: [213, 225, 227, 247, 249]
+ 2020-01-27 09:40:57 Iteration 0 	 Training Loss: 1.879e+00 	 Loss in Target Net: 1.338e+00	  
+ 2020-01-27 09:58:15 Iteration 50 	 Training Loss: 8.826e-02 	 Loss in Target Net: 4.148e-02	  
+ 2020-01-27 10:29:27 Iteration 100 	 Training Loss: 6.851e-02 	 Loss in Target Net: 3.151e-02	  
+ 2020-01-27 11:05:11 Iteration 150 	 Training Loss: 5.941e-02 	 Loss in Target Net: 3.046e-02	  
+ 2020-01-27 11:43:42 Iteration 200 	 Training Loss: 5.326e-02 	 Loss in Target Net: 2.789e-02	  
+ 2020-01-27 12:23:14 Iteration 250 	 Training Loss: 5.376e-02 	 Loss in Target Net: 2.635e-02	  
+ 2020-01-27 13:03:52 Iteration 300 	 Training Loss: 4.884e-02 	 Loss in Target Net: 2.690e-02	  
+ 2020-01-27 13:46:02 Iteration 350 	 Training Loss: 4.739e-02 	 Loss in Target Net: 2.400e-02	  
+ 2020-01-27 14:28:11 Iteration 400 	 Training Loss: 4.657e-02 	 Loss in Target Net: 2.534e-02	  
+ 2020-01-27 15:10:54 Iteration 450 	 Training Loss: 4.765e-02 	 Loss in Target Net: 2.385e-02	  
+ 2020-01-27 15:53:16 Iteration 500 	 Training Loss: 4.530e-02 	 Loss in Target Net: 2.755e-02	  
+ 2020-01-27 16:37:04 Iteration 550 	 Training Loss: 4.332e-02 	 Loss in Target Net: 2.542e-02	  
+ 2020-01-27 17:20:55 Iteration 600 	 Training Loss: 4.497e-02 	 Loss in Target Net: 2.741e-02	  
+ 2020-01-27 18:04:15 Iteration 650 	 Training Loss: 4.240e-02 	 Loss in Target Net: 2.976e-02	  
+ 2020-01-27 18:47:58 Iteration 700 	 Training Loss: 4.293e-02 	 Loss in Target Net: 2.425e-02	  
+ 2020-01-27 19:31:32 Iteration 750 	 Training Loss: 4.378e-02 	 Loss in Target Net: 2.451e-02	  
+ 2020-01-27 20:15:13 Iteration 800 	 Training Loss: 4.133e-02 	 Loss in Target Net: 2.706e-02	  
+ 2020-01-27 20:59:37 Iteration 850 	 Training Loss: 4.298e-02 	 Loss in Target Net: 2.431e-02	  
+ 2020-01-27 21:44:17 Iteration 900 	 Training Loss: 3.973e-02 	 Loss in Target Net: 2.442e-02	  
+ 2020-01-27 22:27:55 Iteration 950 	 Training Loss: 4.225e-02 	 Loss in Target Net: 2.348e-02	  
+ 2020-01-27 23:12:08 Iteration 1000 	 Training Loss: 4.058e-02 	 Loss in Target Net: 2.444e-02	  
+ 2020-01-27 23:56:05 Iteration 1050 	 Training Loss: 4.278e-02 	 Loss in Target Net: 2.439e-02	  
+ 2020-01-28 00:40:35 Iteration 1100 	 Training Loss: 4.081e-02 	 Loss in Target Net: 2.241e-02	  
+ 2020-01-28 01:25:07 Iteration 1150 	 Training Loss: 4.322e-02 	 Loss in Target Net: 2.367e-02	  
+ 2020-01-28 02:09:40 Iteration 1200 	 Training Loss: 4.225e-02 	 Loss in Target Net: 2.014e-02	  
+ 2020-01-28 02:54:02 Iteration 1250 	 Training Loss: 4.242e-02 	 Loss in Target Net: 2.266e-02	  
+ 2020-01-28 03:38:06 Iteration 1300 	 Training Loss: 4.134e-02 	 Loss in Target Net: 2.141e-02	  
+ 2020-01-28 04:22:08 Iteration 1350 	 Training Loss: 3.964e-02 	 Loss in Target Net: 2.172e-02	  
+ 2020-01-28 05:07:41 Iteration 1400 	 Training Loss: 3.935e-02 	 Loss in Target Net: 2.063e-02	  
+ 2020-01-28 05:53:13 Iteration 1450 	 Training Loss: 4.094e-02 	 Loss in Target Net: 2.175e-02	  
+ 2020-01-28 06:37:52 Iteration 1499 	 Training Loss: 4.120e-02 	 Loss in Target Net: 2.050e-02	  
+Evaluating against victims networks
+DPN92
+Using Adam for retraining
+Files already downloaded and verified
+2020-01-28 06:38:05, Epoch 0, Iteration 7, loss 0.642 (0.562), acc 82.692 (88.400)
+2020-01-28 06:39:01, Epoch 30, Iteration 7, loss 0.000 (0.000), acc 100.000 (100.000)
+Target Label: 6, Poison label: 8, Prediction:6, Target's Score:[-3.352952, -3.4259634, -0.44290212, -3.28723, 1.7304188, -2.0207417, 9.402934, -4.535687, 6.9480877, -0.49982706], Poisons' Predictions:[8, 8, 8, 8, 8]
+2020-01-28 06:40:00 Epoch 59, Val iteration 0, acc 93.400 (93.400)
+2020-01-28 06:40:08 Epoch 59, Val iteration 19, acc 92.800 (93.070)
+* Prec: 93.0700008392334
+--------
+------SUMMARY------
+TIME ELAPSED (mins): 1257
+TARGET INDEX: 6
+DPN92 0

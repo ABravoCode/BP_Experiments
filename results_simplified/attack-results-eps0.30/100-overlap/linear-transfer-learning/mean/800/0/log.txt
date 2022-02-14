@@ -1,0 +1,25 @@
+Namespace(chk_path='attack-results-eps0.30/100-overlap/linear-transfer-learning', chk_subdir='poisons', device='cuda', dset_path='datasets', end2end=False, eval_poison_path='', gpu='0', lr_decay_epoch=[30, 45], mode='mean', model_resume_path='model-chks', nearest=False, net_repeat=1, num_per_class=50, original_grad=True, poison_decay_ites=[], poison_decay_ratio=0.1, poison_epsilon=0.3, poison_ites=800, poison_label=8, poison_lr=0.04, poison_momentum=0.9, poison_num=5, poison_opt='adam', resume_poison_ite=0, retrain_bsize=64, retrain_epochs=60, retrain_lr=0.1, retrain_momentum=0.9, retrain_opt='adam', retrain_wd=0, subs_chk_name=['ckpt-%s-4800-dp0.200-droplayer0.000-seed1226.t7', 'ckpt-%s-4800-dp0.250-droplayer0.000-seed1226.t7', 'ckpt-%s-4800-dp0.300-droplayer0.000.t7'], subs_dp=[0.2, 0.25, 0.3], subset_group=0, substitute_nets=['DPN92', 'SENet18', 'ResNet50', 'ResNeXt29_2x64d', 'GoogLeNet', 'MobileNetV2'], target_index=0, target_label=6, target_net=['DPN92', 'SENet18', 'ResNet50', 'ResNeXt29_2x64d', 'GoogLeNet', 'MobileNetV2', 'ResNet18', 'DenseNet121'], test_chk_name='ckpt-%s-4800.t7', tol=1e-06, train_data_path='datasets/CIFAR10_TRAIN_Split.pth')
+Path: attack-results-eps0.30/100-overlap/linear-transfer-learning/mean/800/0
+Selected base image indices: [213, 225, 227, 247, 249]
+ 2020-08-18 16:21:54 Iteration 0 	 Training Loss: 1.083e+00 	 Loss in Target Net: 3.396e-01	  
+ 2020-08-18 16:22:22 Iteration 50 	 Training Loss: 1.024e-01 	 Loss in Target Net: 1.462e-02	  
+ 2020-08-18 16:22:51 Iteration 100 	 Training Loss: 9.176e-02 	 Loss in Target Net: 1.897e-02	  
+ 2020-08-18 16:23:23 Iteration 150 	 Training Loss: 8.572e-02 	 Loss in Target Net: 1.615e-02	  
+ 2020-08-18 16:23:50 Iteration 200 	 Training Loss: 8.103e-02 	 Loss in Target Net: 1.249e-02	  
+ 2020-08-18 16:24:18 Iteration 250 	 Training Loss: 8.647e-02 	 Loss in Target Net: 1.034e-02	  
+ 2020-08-18 16:24:46 Iteration 300 	 Training Loss: 8.376e-02 	 Loss in Target Net: 1.375e-02	  
+ 2020-08-18 16:25:12 Iteration 350 	 Training Loss: 8.214e-02 	 Loss in Target Net: 1.053e-02	  
+ 2020-08-18 16:25:37 Iteration 400 	 Training Loss: 8.055e-02 	 Loss in Target Net: 1.441e-02	  
+ 2020-08-18 16:26:07 Iteration 450 	 Training Loss: 8.375e-02 	 Loss in Target Net: 1.466e-02	  
+ 2020-08-18 16:26:38 Iteration 500 	 Training Loss: 7.502e-02 	 Loss in Target Net: 1.508e-02	  
+ 2020-08-18 16:27:04 Iteration 550 	 Training Loss: 7.834e-02 	 Loss in Target Net: 9.187e-03	  
+ 2020-08-18 16:27:31 Iteration 600 	 Training Loss: 7.156e-02 	 Loss in Target Net: 1.399e-02	  
+ 2020-08-18 16:28:01 Iteration 650 	 Training Loss: 7.593e-02 	 Loss in Target Net: 1.236e-02	  
+ 2020-08-18 16:28:32 Iteration 700 	 Training Loss: 7.303e-02 	 Loss in Target Net: 1.621e-02	  
+ 2020-08-18 16:28:59 Iteration 750 	 Training Loss: 7.812e-02 	 Loss in Target Net: 1.125e-02	  
+ 2020-08-18 16:29:28 Iteration 799 	 Training Loss: 7.798e-02 	 Loss in Target Net: 1.512e-02	  
+Evaluating against victims networks
+DPN92
+Using Adam for retraining
+Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to datasets/cifar-10-python.tar.gz
+Extracting datasets/cifar-10-python.tar.gz to datasets

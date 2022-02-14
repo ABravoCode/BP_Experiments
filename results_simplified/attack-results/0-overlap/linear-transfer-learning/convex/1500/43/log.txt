@@ -1,0 +1,126 @@
+Namespace(chk_path='chk-black-difftraining-0/', chk_subdir='poisons', device='cuda', dset_path='datasets', end2end=False, eval_poison_path='', gpu='3', lr_decay_epoch=[30, 45], mode='convex', model_resume_path='model-chks-own', nearest=False, net_repeat=1, num_per_class=50, original_grad=True, poison_decay_ites=[], poison_decay_ratio=0.1, poison_epsilon=0.1, poison_ites=1500, poison_label=8, poison_lr=0.04, poison_momentum=0.9, poison_num=5, poison_opt='adam', resume_poison_ite=0, retrain_bsize=64, retrain_epochs=60, retrain_lr=0.1, retrain_momentum=0.9, retrain_opt='adam', retrain_wd=0, subs_chk_name=['cifar10-ckpt-%s-4800to2400-dp0.200-droplayer0.000-seed1717.t7', 'cifar10-ckpt-%s-4800to2400-dp0.250-droplayer0.000-seed1717.t7', 'cifar10-ckpt-%s-4800to2400-dp0.300-droplayer0.000-seed1717.t7'], subs_dp=[0.2, 0.25, 0.3], subset_group=0, substitute_nets=['DPN92', 'SENet18', 'ResNet50', 'ResNeXt29_2x64d', 'GoogLeNet', 'MobileNetV2'], target_index=43, target_label=6, target_net=['DPN92', 'SENet18', 'ResNet50', 'ResNeXt29_2x64d', 'GoogLeNet', 'MobileNetV2', 'ResNet18', 'DenseNet121'], test_chk_name='cifar10-ckpt-%s-2400to1-dp0.000-droplayer0.000-seed2020.t7', tol=1e-06, train_data_path='datasets/CIFAR10_TRAIN_Split.pth')
+Path: chk-black-difftraining-0/convex/1500/43
+Selected base image indices: [213, 225, 227, 247, 249]
+ 2020-04-20 05:01:48 Iteration 0 	 Training Loss: 3.859e-01 	 Loss in Target Net: 5.078e-01	  
+ 2020-04-20 05:07:19 Iteration 50 	 Training Loss: 3.267e-03 	 Loss in Target Net: 4.032e-02	  
+ 2020-04-20 05:15:35 Iteration 100 	 Training Loss: 2.440e-03 	 Loss in Target Net: 4.370e-02	  
+ 2020-04-20 05:24:53 Iteration 150 	 Training Loss: 1.897e-03 	 Loss in Target Net: 4.039e-02	  
+ 2020-04-20 05:34:50 Iteration 200 	 Training Loss: 1.772e-03 	 Loss in Target Net: 3.702e-02	  
+ 2020-04-20 05:45:42 Iteration 250 	 Training Loss: 1.659e-03 	 Loss in Target Net: 3.647e-02	  
+ 2020-04-20 05:56:16 Iteration 300 	 Training Loss: 1.614e-03 	 Loss in Target Net: 3.225e-02	  
+ 2020-04-20 06:07:31 Iteration 350 	 Training Loss: 1.688e-03 	 Loss in Target Net: 3.189e-02	  
+ 2020-04-20 06:18:49 Iteration 400 	 Training Loss: 1.473e-03 	 Loss in Target Net: 2.789e-02	  
+ 2020-04-20 06:30:32 Iteration 450 	 Training Loss: 1.433e-03 	 Loss in Target Net: 3.417e-02	  
+ 2020-04-20 06:42:05 Iteration 500 	 Training Loss: 1.563e-03 	 Loss in Target Net: 3.589e-02	  
+ 2020-04-20 06:53:16 Iteration 550 	 Training Loss: 1.402e-03 	 Loss in Target Net: 2.479e-02	  
+ 2020-04-20 07:06:03 Iteration 600 	 Training Loss: 1.276e-03 	 Loss in Target Net: 2.650e-02	  
+ 2020-04-20 07:19:20 Iteration 650 	 Training Loss: 1.324e-03 	 Loss in Target Net: 2.799e-02	  
+ 2020-04-20 07:31:57 Iteration 700 	 Training Loss: 1.457e-03 	 Loss in Target Net: 3.294e-02	  
+ 2020-04-20 07:44:33 Iteration 750 	 Training Loss: 1.250e-03 	 Loss in Target Net: 2.489e-02	  
+ 2020-04-20 07:57:22 Iteration 800 	 Training Loss: 1.220e-03 	 Loss in Target Net: 2.400e-02	  
+ 2020-04-20 08:09:48 Iteration 850 	 Training Loss: 1.275e-03 	 Loss in Target Net: 2.504e-02	  
+ 2020-04-20 08:22:49 Iteration 900 	 Training Loss: 1.373e-03 	 Loss in Target Net: 2.707e-02	  
+ 2020-04-20 08:35:11 Iteration 950 	 Training Loss: 1.379e-03 	 Loss in Target Net: 2.793e-02	  
+ 2020-04-20 08:47:14 Iteration 1000 	 Training Loss: 1.456e-03 	 Loss in Target Net: 2.503e-02	  
+ 2020-04-20 08:59:44 Iteration 1050 	 Training Loss: 1.522e-03 	 Loss in Target Net: 3.545e-02	  
+ 2020-04-20 09:12:51 Iteration 1100 	 Training Loss: 1.346e-03 	 Loss in Target Net: 2.958e-02	  
+ 2020-04-20 09:25:48 Iteration 1150 	 Training Loss: 1.451e-03 	 Loss in Target Net: 3.521e-02	  
+ 2020-04-20 09:38:23 Iteration 1200 	 Training Loss: 1.274e-03 	 Loss in Target Net: 2.516e-02	  
+ 2020-04-20 09:51:28 Iteration 1250 	 Training Loss: 1.327e-03 	 Loss in Target Net: 3.802e-02	  
+ 2020-04-20 10:04:29 Iteration 1300 	 Training Loss: 1.189e-03 	 Loss in Target Net: 2.400e-02	  
+ 2020-04-20 10:17:24 Iteration 1350 	 Training Loss: 1.234e-03 	 Loss in Target Net: 3.186e-02	  
+ 2020-04-20 10:29:40 Iteration 1400 	 Training Loss: 1.308e-03 	 Loss in Target Net: 3.233e-02	  
+ 2020-04-20 10:52:17 Iteration 1450 	 Training Loss: 1.195e-03 	 Loss in Target Net: 2.912e-02	  
+ 2020-04-20 11:16:42 Iteration 1499 	 Training Loss: 1.433e-03 	 Loss in Target Net: 2.418e-02	  
+Evaluating against victims networks
+DPN92
+Using Adam for retraining
+Files already downloaded and verified
+2020-04-20 11:16:48, Epoch 0, Iteration 7, loss 2.080 (3.089), acc 86.538 (71.800)
+2020-04-20 11:16:49, Epoch 30, Iteration 7, loss 0.070 (0.297), acc 98.077 (95.400)
+Target Label: 6, Poison label: 8, Prediction:8, Target's Score:[-28.959715, -28.09207, -16.139174, 16.580694, -20.90384, -32.35786, 32.002285, -44.31864, 35.793137, -90.79377], Poisons' Predictions:[8, 8, 8, 6, 6]
+2020-04-20 11:16:53 Epoch 59, Val iteration 0, acc 90.400 (90.400)
+2020-04-20 11:17:01 Epoch 59, Val iteration 19, acc 88.600 (89.280)
+* Prec: 89.28000144958496
+--------
+SENet18
+Using Adam for retraining
+Files already downloaded and verified
+2020-04-20 11:17:05, Epoch 0, Iteration 7, loss 1.225 (1.006), acc 88.462 (86.200)
+2020-04-20 11:17:06, Epoch 30, Iteration 7, loss 0.038 (0.222), acc 100.000 (94.800)
+Target Label: 6, Poison label: 8, Prediction:6, Target's Score:[-2.2758956, -14.847829, -16.815134, -10.492846, -37.680153, 0.75252163, 24.594818, -32.36182, 24.52719, -33.544903], Poisons' Predictions:[8, 8, 8, 6, 6]
+2020-04-20 11:17:07 Epoch 59, Val iteration 0, acc 89.800 (89.800)
+2020-04-20 11:17:10 Epoch 59, Val iteration 19, acc 89.200 (88.500)
+* Prec: 88.50000228881837
+--------
+ResNet50
+Using Adam for retraining
+Files already downloaded and verified
+2020-04-20 11:17:13, Epoch 0, Iteration 7, loss 1.681 (3.332), acc 90.385 (64.200)
+2020-04-20 11:17:14, Epoch 30, Iteration 7, loss 0.008 (0.168), acc 100.000 (96.600)
+Target Label: 6, Poison label: 8, Prediction:6, Target's Score:[-2.747516, -16.814188, -20.06563, -5.5370526, 6.338253, 2.9143755, 29.301155, -54.371754, 26.154709, -34.366642], Poisons' Predictions:[8, 6, 8, 8, 6]
+2020-04-20 11:17:16 Epoch 59, Val iteration 0, acc 88.800 (88.800)
+2020-04-20 11:17:20 Epoch 59, Val iteration 19, acc 89.600 (88.660)
+* Prec: 88.66000022888184
+--------
+ResNeXt29_2x64d
+Using Adam for retraining
+Files already downloaded and verified
+2020-04-20 11:17:25, Epoch 0, Iteration 7, loss 2.371 (3.283), acc 73.077 (68.200)
+2020-04-20 11:17:26, Epoch 30, Iteration 7, loss 0.160 (0.284), acc 96.154 (93.800)
+Target Label: 6, Poison label: 8, Prediction:6, Target's Score:[-43.73504, -32.308285, -6.8587027, 7.4904504, 1.5400702, -4.736406, 25.336739, -10.767441, 18.460117, -17.818285], Poisons' Predictions:[8, 8, 8, 8, 8]
+2020-04-20 11:17:27 Epoch 59, Val iteration 0, acc 89.800 (89.800)
+2020-04-20 11:17:34 Epoch 59, Val iteration 19, acc 90.000 (89.610)
+* Prec: 89.61000175476075
+--------
+GoogLeNet
+Using Adam for retraining
+Files already downloaded and verified
+2020-04-20 11:17:39, Epoch 0, Iteration 7, loss 0.625 (0.870), acc 86.538 (83.600)
+2020-04-20 11:17:40, Epoch 30, Iteration 7, loss 0.035 (0.059), acc 100.000 (97.800)
+Target Label: 6, Poison label: 8, Prediction:6, Target's Score:[-14.849351, -13.434561, -17.998415, -3.7196014, -1.1989615, -8.913263, 18.507586, -8.011405, 16.18133, -35.795914], Poisons' Predictions:[8, 8, 8, 8, 8]
+2020-04-20 11:17:43 Epoch 59, Val iteration 0, acc 87.600 (87.600)
+2020-04-20 11:17:49 Epoch 59, Val iteration 19, acc 88.600 (87.740)
+* Prec: 87.74000129699706
+--------
+MobileNetV2
+Using Adam for retraining
+Files already downloaded and verified
+2020-04-20 11:17:52, Epoch 0, Iteration 7, loss 2.374 (3.487), acc 69.231 (67.000)
+2020-04-20 11:17:53, Epoch 30, Iteration 7, loss 0.006 (0.230), acc 100.000 (94.800)
+Target Label: 6, Poison label: 8, Prediction:8, Target's Score:[-6.3282523, 18.315088, -0.18729246, 18.152098, -75.65507, -13.114847, 37.966175, -31.698713, 41.67649, -59.41419], Poisons' Predictions:[8, 8, 8, 6, 6]
+2020-04-20 11:17:54 Epoch 59, Val iteration 0, acc 84.000 (84.000)
+2020-04-20 11:17:58 Epoch 59, Val iteration 19, acc 86.200 (84.410)
+* Prec: 84.41000213623047
+--------
+ResNet18
+Using Adam for retraining
+Files already downloaded and verified
+2020-04-20 11:18:03, Epoch 0, Iteration 7, loss 0.734 (0.908), acc 84.615 (82.400)
+2020-04-20 11:18:03, Epoch 30, Iteration 7, loss 0.063 (0.087), acc 98.077 (97.200)
+Target Label: 6, Poison label: 8, Prediction:6, Target's Score:[5.999595, -19.410637, -2.5573707, 0.39868358, -12.421816, -35.801, 13.662513, -39.264194, 12.036344, -52.526955], Poisons' Predictions:[8, 8, 8, 6, 8]
+2020-04-20 11:18:04 Epoch 59, Val iteration 0, acc 91.400 (91.400)
+2020-04-20 11:18:09 Epoch 59, Val iteration 19, acc 89.600 (89.830)
+* Prec: 89.83000106811524
+--------
+DenseNet121
+Using Adam for retraining
+Files already downloaded and verified
+2020-04-20 11:18:14, Epoch 0, Iteration 7, loss 1.165 (0.771), acc 86.538 (87.400)
+2020-04-20 11:18:14, Epoch 30, Iteration 7, loss 0.005 (0.014), acc 100.000 (99.600)
+Target Label: 6, Poison label: 8, Prediction:8, Target's Score:[3.9942818, -9.461116, -4.776946, 3.6591098, -10.520331, -37.63101, 9.877672, 1.1951742, 10.703598, -15.250783], Poisons' Predictions:[8, 8, 8, 6, 8]
+2020-04-20 11:18:17 Epoch 59, Val iteration 0, acc 91.200 (91.200)
+2020-04-20 11:18:23 Epoch 59, Val iteration 19, acc 90.200 (90.500)
+* Prec: 90.50000228881837
+--------
+------SUMMARY------
+TIME ELAPSED (mins): 375
+TARGET INDEX: 43
+DPN92 1
+SENet18 0
+ResNet50 0
+ResNeXt29_2x64d 0
+GoogLeNet 0
+MobileNetV2 1
+ResNet18 0
+DenseNet121 1
