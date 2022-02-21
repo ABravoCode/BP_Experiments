@@ -43,6 +43,7 @@ def proj_onto_simplex(coeffs, psum=1.0):
     """
     Code stolen from https://github.com/hsnamkoong/robustopt/blob/master/src/simple_projections.py
     Project onto probability simplex by default.
+    一个凸加速算法
     """
     v_np = coeffs.view(-1).detach().cpu().numpy()
     n_features = v_np.shape[0]
@@ -59,8 +60,12 @@ def proj_onto_simplex(coeffs, psum=1.0):
 def least_squares_simplex(A, b, x_init, tol=1e-6, verbose=False, device='cuda'):
     """
     The inner loop of Algorithm 1
+    A: 特征空间中毒物向量的位置
+    b: base(?)
+    x: 参数c
     """
     m, n = A.size()
+    # 维数不相同直接报错
     assert b.size()[0] == A.size()[0], 'Matrix and vector do not have compatible dimensions'
 
     # Initialize the optimization variables
@@ -70,29 +75,36 @@ def least_squares_simplex(A, b, x_init, tol=1e-6, verbose=False, device='cuda'):
         x = x_init
 
     # Define the objective function and its gradient
+    # lambda 快速封装计算 .mm()乘法 f特征空间位置 .item()遍历
     f = lambda x: torch.norm(A.mm(x) - b).item()
     # change into a faster version when A is a tall matrix
+    # 线性代数局限了我的理解...
     AtA = A.t().mm(A)
     Atb = A.t().mm(b)
     grad_f = lambda x: AtA.mm(x) - Atb
     # grad_f = lambda x: A.t().mm(A.mm(x)-b)
 
     # Estimate the spectral radius of the Matrix A'A
+    # 矩阵AtA的二范数 —> 特征空间中的面积
     y = torch.normal(0, torch.ones(n, 1)).to(device)
+    # 计算<半径>?
     lipschitz = torch.norm(A.t().mm(A.mm(y))) / torch.norm(y)
 
     # The stepsize for the problem should be 2/lipschits.  Our estimator might not be correct, it could be too small.  In
     # this case our learning rate will be too big, and so we need to have a backtracking line search to make sure things converge.
+    # 学习率
     t = 2 / lipschitz
 
     # Main iteration
+    # while *not converged* do
     for iter in range(10000):
         x_hat = x - t * grad_f(x)  # Forward step:  Gradient decent on the objective term
         if f(x_hat) > f(x):  # Check whether the learning rate is small enough to decrease objective
-            t = t / 2
+            t = t / 2 # 学习率过大则自衰减
         else:
             x_new = proj_onto_simplex(x_hat)  # Backward step: Project onto prob simplex
-            stopping_condition = torch.norm(x - x_new) / max(torch.norm(x), 1e-8)
+            stopping_condition = torch.norm(x - x_new) / max(torch.norm(x), 1e-8) # 分母最小值1e-8，分子为矩阵差值范数
+            # verbose：Java里的日志输出控制
             if verbose: print('iter %d: error = %0.4e' % (iter, stopping_condition))
             if stopping_condition < tol:  # check stopping conditions
                 break
@@ -140,24 +152,31 @@ def loss_from_center(subs_net_list, target_feat_list, poison_batch, net_repeat, 
     return loss
 
 
+# 为了c为非1/k定值的情况
 # This is for when the coefficients are fixed, but not to 1/k. This is written originally to address the concerns
 # raised by reviewers. We have plan to make it more comprehensive. As of now, it's just for linear transfer learning
 # when net_repeat is set to one!
 def loss_when_coeffs_fixed(subs_net_list, target_feat_list, poison_batch, coeffs, net_repeat=1, end2end=False):
+    # 仅限1次循环的LTL
     assert net_repeat == 1 and end2end == False
 
     loss = 0
+    # zip打包 [1,2]+[3,4,5]->[(1,3),(2,4)] *解压 penu是什么？
     for net, center in zip(subs_net_list, target_feat_list):
         poisons = net(x=poison_batch(), penu=True)
         diff = torch.sum(coeffs * poisons, dim=0) - center
+        # 计算欧氏?距离
         diff_norm = torch.norm(diff, dim=1) / torch.norm(center, dim=1)
+        # 距离比作为loss
         loss += torch.mean(diff_norm)
 
+    # 平均化
     loss = loss / len(subs_net_list)
 
     return loss
 
 
+# 算法1 外循环的单步
 def get_CP_loss(net_list, target_feature_list, poison_batch, s_coeff_list, net_repeat, tol=1e-6):
     """
     Corresponding to one step of the outer loop (except for updating and clipping) of Algorithm 1
@@ -166,8 +185,8 @@ def get_CP_loss(net_list, target_feature_list, poison_batch, s_coeff_list, net_r
     poison_feat_mat_list = []
     for net in net_list:
         if net_repeat > 1:
-            poisons = [net(x=poison_batch(), penu=True) for _ in range(net_repeat)]
-            poisons = sum(poisons) / len(poisons)
+            poisons = [net(x=poison_batch(), penu=True) for _ in range(net_repeat)] # 重复读入
+            poisons = sum(poisons) / len(poisons) # 均值
         elif net_repeat == 1:
             poisons = net(x=poison_batch(), penu=True)
         else:
