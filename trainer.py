@@ -43,7 +43,7 @@ def proj_onto_simplex(coeffs, psum=1.0):
     """
     Code stolen from https://github.com/hsnamkoong/robustopt/blob/master/src/simple_projections.py
     Project onto probability simplex by default.
-    一个凸加速算法
+    一个凸加速算法 那个巨复杂的式子
     """
     v_np = coeffs.view(-1).detach().cpu().numpy()
     n_features = v_np.shape[0]
@@ -113,6 +113,7 @@ def least_squares_simplex(A, b, x_init, tol=1e-6, verbose=False, device='cuda'):
     return x
 
 
+# BP的loss计算
 def loss_from_center(subs_net_list, target_feat_list, poison_batch, net_repeat, end2end):
     if end2end:
         loss = 0
@@ -195,10 +196,12 @@ def get_CP_loss(net_list, target_feature_list, poison_batch, s_coeff_list, net_r
 
     t = time.time()
     for nn, (pfeat_mat, target_feat) in enumerate(zip(poison_feat_mat_list, target_feature_list)):
+        # 根据计算结果更新参数
         s_coeff_list[nn] = least_squares_simplex(A=pfeat_mat.t().detach(), b=target_feat.t().detach(),
                                                  x_init=s_coeff_list[nn], tol=tol)
     coeffs_time = int(time.time() - t)
 
+    # 欧氏距离计算loss
     total_loss = 0
     for net, s_coeff, target_feat, poison_feat_mat in zip(net_list, s_coeff_list, target_feature_list,
                                                           poison_feat_mat_list):
@@ -269,11 +272,13 @@ def make_convex_polytope_poisons(subs_net_list, target_net, base_tensor_list, ta
 
     # Because we have turned on DP for the substitute networks,
     # the target image's feature becomes random.
+    # Dropout的调用使得目标图像的特征变得随机
     # We can try enforcing the convex polytope in one of the multiple realizations of the feature,
     # but empirically one realization is enough.
     target_feat_list = []
     # Coefficients for the convex combination.
     # Initializing from the coefficients of last step gives faster convergence.
+    # 初始化系数可以加速收敛
     s_init_coeff_list = []
     n_poisons = len(base_tensor_list)
     for n, net in enumerate(subs_net_list):
@@ -284,6 +289,7 @@ def make_convex_polytope_poisons(subs_net_list, target_net, base_tensor_list, ta
             s_coeff = [torch.ones(n_poisons, 1).to(device) / n_poisons for _ in range(len(block_feats))]
         else:
             target_feat_list.append(net(x=target, penu=True).detach())
+            # c = 1/k
             s_coeff = torch.ones(n_poisons, 1).to(device) / n_poisons
 
         s_init_coeff_list.append(s_coeff)
@@ -302,6 +308,7 @@ def make_convex_polytope_poisons(subs_net_list, target_net, base_tensor_list, ta
     coeffs_time = 0
     poisons_time = 0
     for ite in range(start_ite, iterations):
+        # 在给定处衰减学习率
         if ite in decay_ites:
             for param_group in optimizer.param_groups:
                 param_group['lr'] *= decay_ratio
@@ -318,6 +325,7 @@ def make_convex_polytope_poisons(subs_net_list, target_net, base_tensor_list, ta
             total_loss = loss_from_center(subs_net_list, target_feat_list, poison_batch, net_repeat, end2end)
             coeffs_time_tmp = 0
 
+        # 实验4的单步
         elif mode.startswith('coeffs_fixed_type_'):
             coeffs_type = int(mode.split("coeffs_fixed_type_")[1])
             coeffs = COEFFS[coeffs_type]
@@ -332,11 +340,13 @@ def make_convex_polytope_poisons(subs_net_list, target_net, base_tensor_list, ta
 
         coeffs_time += coeffs_time_tmp
 
+        # 向后传播
         total_loss.backward()
         optimizer.step()
         poisons_time += int(time.time() - t)
 
         # clip the perturbations into the range
+        # 上下封顶为epsilon后标准化
         assert epsilon == 0.1
         perturb_range01 = torch.clamp((poison_batch.poison.data - base_tensor_batch) * std, -epsilon, epsilon)
         perturbed_range01 = torch.clamp(base_range01_batch.data + perturb_range01.data, 0, 1)
@@ -356,6 +366,7 @@ def make_convex_polytope_poisons(subs_net_list, target_net, base_tensor_list, ta
             # compute the difference in target
             print(" %s Iteration %d \t Training Loss: %.3e \t Loss in Target Net: %.3e\t  " % (
                 time.strftime("%Y-%m-%d %H:%M:%S"), ite, total_loss.item(), target_loss.item()))
+            # 刷新stdout
             sys.stdout.flush()
 
             # save the checkpoints
@@ -436,6 +447,7 @@ def train_network_with_poison(net, target_img, poison_tuple_list, base_idx_list,
                                     num_per_label=args.num_per_class, poison_tuple_list=poison_tuple_list,
                                     poison_indices=base_idx_list, subset_group=args.subset_group)
 
+    # 载入毒物
     poisoned_loader = torch.utils.data.DataLoader(poisoned_dset, batch_size=args.retrain_bsize, shuffle=True)
 
     # The test set of clean CIFAR10
